@@ -1,10 +1,16 @@
 const {ObjectId} = require('mongodb')
 const {getDB} = require('../data/connection');
 
-async function getAllroadPirates(){
+async function getAllroadPirates(sortBy){
     const db = getDB();
+    const sorts = {
+        name: { name: 1 },
+        surname: { surname: 1 },
+        createdAt: { createdAt: -1 }
+    };
+    const sort = sorts[sortBy] || sorts.createdAt;
     return await db.collection('roadPirates')
-    .find().sort({createdAt: -1}).toArray();
+        .find().sort(sort).toArray();
 }
 async function getRoadPirateById(id){
     const db = getDB();
@@ -12,16 +18,16 @@ async function getRoadPirateById(id){
     .findOne({_id: new ObjectId(id)});
 }
 
-async function addRoadPirate(title, content){
+async function addRoadPirate(name, surname){
     const db = getDB();
     await db.collection('roadPirates')
-    .insertOne({title, content, createdAt: new Date()})
+    .insertOne({name, surname, createdAt: new Date()})
 }
 
-async function updateNote(id, title, content){
+async function updateRoadPirate(name, surname, brand, content){
     const db = getDB();
     await db.collection('roadPirates')
-    .updateOne({ _id: new ObjectId(id)}, { $set: { title, content } });
+    .updateOne({ _id: new ObjectId(id)}, { $set: { name, surname, brand, content } });
 }
 
 async function deleteRoadPirate(id){
@@ -30,4 +36,4 @@ async function deleteRoadPirate(id){
     .deleteOne({ _id: new ObjectId(id) });
 }
 
-module.exports ={getAllroadPirates, getRoadPirateById, addRoadPirate, updateNote, deleteRoadPirate};
+module.exports ={getAllroadPirates, getRoadPirateById, addRoadPirate, updateRoadPirate, deleteRoadPirate};

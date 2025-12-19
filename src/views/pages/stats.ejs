@@ -4,8 +4,9 @@
     <p>Liczba piratów drogowych: <strong><%= count %></strong></p>
 
     <% if (latest) { %>
-        <h3>Najnowszy wpis</h3>
-        <p><strong><%= latest.title || latest.name %></strong> — <span class="text-muted"><%= latest.content %></span></p>
+        <h3>Najnowszy wpis:</h3>
+        <p><%= latest.name || latest.surname %>
+        <span class="text-muted"><%= latest.surname %></span></p>
     <% } else { %>
         <p class="text-muted">Brak wpisów.</p>
     <% } %>

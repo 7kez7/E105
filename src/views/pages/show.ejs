@@ -9,17 +9,23 @@
     <%- include ('../partials/header') -%>
 
     <main>
-       <h1>
+       <h1>Piraci drogowi</h1>
+
+       <div class="sort-options">
+           <strong>Sortuj:</strong>
+       <a href="/?sort=name" <%= (typeof sort !== 'undefined' && sort === 'name') ? 'style="font-weight:bold"' : '' %>>Imieniem A->Z</a> |
+       <a href="/?sort=surname" <%= (typeof sort !== 'undefined' && sort === 'surname') ? 'style="font-weight:bold"' : '' %>>Nazwiskiem A->Z</a> |
+       <a href="/" <%= (typeof sort === 'undefined' || sort === null || sort === '') ? 'style="font-weight:bold"' : '' %>>Domyślnie</a>
+       <ul>
         <% roadPirates.forEach(roadPirate => { %>
             <li>
-                <b><%= roadPirate.name %></b> - <b><%= roadPirate.surename %></b> - <%= roadPirate.content %>
+                <b><%= roadPirate.name %></b> <b><%= roadPirate.surname %></b>
                 <a href ="/edit/<%= roadPirate._id%>">Edytuj pirata</a>
-                <form action="delete/<%= roadPirate._id %>" method ="POST"
-                    style ="display:inline">
+                <form action="delete/<%= roadPirate._id %>" method ="POST" style ="display:inline">
                     <button type ="submit">Usuń pirata</button>
                 </form>
             </li>
       <%  }) %>
-       </h1>
+       </ul>
     </main>
     <%- include('../partials/footer') %>

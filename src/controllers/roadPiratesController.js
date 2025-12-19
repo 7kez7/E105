@@ -1,15 +1,17 @@
+const { name } = require('ejs');
 const roadPiratesModel = require('../models/roadPiratesModel');
 
 async function getAll(req, res){
-    const roadPirates = await roadPiratesModel.getAllroadPirates();
-    res.render('pages/show', {roadPirates})
+    const sort = req.query.sort;
+    const roadPirates = await roadPiratesModel.getAllroadPirates(sort);
+    res.render('pages/show', {roadPirates, sort})
 }
 function getAddForm(req, res){
     res.render('pages/add');
 }
 async function postAdd(req, res){
-    const {title, content} = req.body;
-    await roadPiratesModel.addRoadPirate(title, content);
+    const {name, surname} = req.body;
+    await roadPiratesModel.addRoadPirate(name, surname);
         res.redirect('/');
 }
 async function getEditForm(req, res){
@@ -17,8 +19,8 @@ async function getEditForm(req, res){
     res.render('pages/edit', {roadPirate})
 }
 async function postEdit(req, res){
-    const {title, content} = req.body;
-    await roadPiratesModel.updateNote(req.params.id, title, content);
+    const {name, surname} = req.body;
+    await roadPiratesModel.updateNote(req.params.id, name, surname);
     res.redirect('/');
 }
 async function deleteRoadPirate(req, res) {
