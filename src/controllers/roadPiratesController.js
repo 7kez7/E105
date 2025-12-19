@@ -1,4 +1,3 @@
-const { name } = require('ejs');
 const roadPiratesModel = require('../models/roadPiratesModel');
 
 async function getAll(req, res){
@@ -20,7 +19,7 @@ async function getEditForm(req, res){
 }
 async function postEdit(req, res){
     const {name, surname} = req.body;
-    await roadPiratesModel.updateNote(req.params.id, name, surname);
+    await roadPiratesModel.updateRoadPirate(req.params.id, name, surname);
     res.redirect('/');
 }
 async function deleteRoadPirate(req, res) {

@@ -1,7 +1,7 @@
 {
   "name": "e105",
   "version": "1.0.0",
-  "description": "",
+  "description": "prosta aplikacja do zarządzania wpisami o piratach drogowych",
   "main": "app.js",
   "scripts": {
     "start": "node src/server.js"
