@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piraci drogowi</title>
+</head>
+<body>
+    <%- include ('../partials/header') -%>
+
+    <main>
+       <h1>
+        <% roadPirates.forEach(roadPirate => { %>
+            <li>
+                <b><%= roadPirate.name %></b> - <b><%= roadPirate.surename %></b> - <%= roadPirate.content %>
+                <a href ="/edit/<%= roadPirate._id%>">Edytuj pirata</a>
+                <form action="delete/<%= roadPirate._id %>" method ="POST"
+                    style ="display:inline">
+                    <button type ="submit">Usuń pirata</button>
+                </form>
+            </li>
+      <%  }) %>
+       </h1>
+    </main>
+    <%- include('../partials/footer') %>

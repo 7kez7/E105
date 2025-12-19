@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+<main>
+    <h2>Dodaj nowego pirata drogowego</h2>
+    <form action="/edit/<%= roadPirate._id %>" method="POST">
+        <input type = "text" name="name" value ="<%= roadPirate.name %>" placeholder="imie" required><br><br>
+        <input type = "text" name="surename" value ="<%= roadPirate.surename %>" placeholder="nazwisko" required><br><br>
+        <input type = "text" name="plate" value ="<%= roadPirate.plate %>" placeholder="rejestracja" required><br><br>
+        <input type = "number" name="number" value ="<%= roadPirate.number %>" placeholder="numer telefonu" required><br><br>
+        <input type = "email" name="email" value ="<%= roadPirate.email %>" placeholder="email" required><br><br>
+        <textarea name="content" placeholder="przewinienie"> <%= roadPirate.content %></textarea> <br><br>
+            <button type = "submit" > Zapisz zmiany</button>
+    </form>
+</main>
+<%- include('../partials/footer') %>

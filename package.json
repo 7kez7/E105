@@ -1,0 +1,17 @@
+{
+  "name": "e105",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "author": "Jakub Dziwosz",
+  "license": "ISC",
+  "dependencies": {
+    "docker": "^1.0.0",
+    "ejs": "^3.1.10",
+    "express": "^5.2.1",
+    "mongodb": "^7.0.0"
+  }
+}
