@@ -57,5 +57,10 @@ http://localhost:7000
 
 ---
 
+
 ## Autor
 Jakub Dziwosz
+
+---
+
+Licencja znajduje się w pliku LICENSE.md
