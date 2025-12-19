@@ -15,7 +15,6 @@ Aplikacja obsługuje pełen zestaw operacji CRUD:
 - Edytowanie istniejących wpisów  
 - Usuwanie wpisów  
 - Wyświetlanie listy piratów drogowych  
-- Podgląd statystyk  
 
 ---
 
@@ -29,25 +28,34 @@ Projekt został wykonany z użyciem następujących technologii:
 - MongoDB  
 
 ---
-
 ## Instrukcja instalacji i uruchomienia
-### 1. Klonowanie repozytorium
-```bash
-git clone https://github.com/7kez7/E105
-cd E105
-npm install
-npm start
-4. Dostęp do aplikacji
 
-Aplikacja będzie dostępna pod adresem:
+**Klonowanie repozytorium:**
+
+    git clone https://github.com/7kez7/E105
+    cd E105
+
+**Instalacja zależności projektu:**
+
+    npm install
+
+**Uruchomienie aplikacji:**
+
+    npm start
+
+Aplikacja będzie dostępna pod adresem:  
 http://localhost:7000
 
-Lista endpointów
-Endpoint	Opis
-/	Lista piratów drogowych
-/add	Dodawanie pirata drogowego
-/stats	Statystyki
-/about	O nas
+---
 
-Autor
+## Lista endpointów
+
+- `/` – Lista piratów drogowych  
+- `/add` – Dodawanie pirata drogowego  
+- `/stats` – Statystyki  
+- `/about` – O nas  
+
+---
+
+## Autor
 Jakub Dziwosz
